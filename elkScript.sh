@@ -48,18 +48,22 @@ systemctl status nginx
 
 #--install net-tools to get ec2 ip
 sudo apt install net-tools -y
-#--create env varble called ec2 ip
-export ec2_ip=$(curl ifconfig.me)
 
-sudo rm -r /etc/nginx/sites-available/kibana
-sleep 3
+#--create env varble called ec2 ip
 #--configure the kibana file
+export ec2_ip=$(curl ifconfig.me)
+cd /etc/nginx/sites-available/
+export ec2_ip=$(curl ifconfig.me)
+cd ~
+cd /etc/nginx/sites-enabled/
+export ec2_ip=$(curl ifconfig.me)
+cd ~
 
 sudo echo '
 server {
     listen 80;
 
-    server_name $ec2_ip;
+    server_name '$ec2_ip';
 
     location / {
         proxy_pass http://localhost:5601;
@@ -141,11 +145,14 @@ echo "
 echo "Now you can use your url
 
 "
+sudo service nginx restart
 
 echo "  >>>>  http://$ec2_ip/status   <<<< 
 
 
 "
+
+
 
 
 
