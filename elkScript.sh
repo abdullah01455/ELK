@@ -129,7 +129,7 @@ sudo systemctl enable logstash
 echo "Done !!"
 sudo service nginx restart
 
-echo "
+echo -e "
 
 
 o
