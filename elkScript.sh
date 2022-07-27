@@ -1,5 +1,4 @@
-#!/usr/bin/sudo bash
-
+#!/bin/bash
 
  
 
@@ -56,7 +55,7 @@ export ec2_ip=$(curl ifconfig.me)
 sudo rm -r /etc/nginx/sites-available/kibana
 sleep 3
 #--configure the kibana file
-
+#@@@@
 sudo printf "
 server {
     listen 80;
@@ -71,7 +70,6 @@ server {
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
     }
-    
 }
 " > /etc/nginx/sites-available/kibana
 
@@ -111,18 +109,18 @@ sleep 2
 sudo echo '
 output {
   if [@metadata][pipeline] {
-        elasticsearch {
-        hosts => ["localhost:9200"]
-        manage_template => false
-        index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
-        pipeline => "%{[@metadata][pipeline]}"
-        }
+	elasticsearch {
+  	hosts => ["localhost:9200"]
+  	manage_template => false
+  	index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+  	pipeline => "%{[@metadata][pipeline]}"
+	}
   } else {
-        elasticsearch {
-        hosts => ["localhost:9200"]
-        manage_template => false
-        index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
-        }
+	elasticsearch {
+  	hosts => ["localhost:9200"]
+  	manage_template => false
+  	index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+	}
   }
 }
 ' > /etc/logstash/conf.d/30-elasticsearch-output.conf
@@ -141,11 +139,6 @@ echo "
  
 "
 
-
-sleep 5
-
-sudo service nginx restart
-
 echo "Now you can use your url
 
 "
@@ -154,3 +147,16 @@ echo "  >>>>  http://$ec2_ip/status   <<<<
 
 
 "
+
+sudo service nginx restart
+
+
+
+
+
+
+
+
+
+
+
