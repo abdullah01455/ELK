@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su root
+
 
 
 ##START##------Install elasticsearch-------------------------
@@ -16,7 +18,7 @@ sudo apt-get update && sudo apt-get install elasticsearch
 
 echo "2 - Enable local network ... "
 sudo rm -r /etc/elasticsearch/elasticsearch.yml
-sudo printf "path.data: /var/lib/elasticsearch \n path.logs: /var/log/elasticsearch \n network.host: localhost" > /etc/elasticsearch/elasticsearch.yml
+sudo printf "path.data: /var/lib/elasticsearch \npath.logs: /var/log/elasticsearch \n network.host: localhost" > /etc/elasticsearch/elasticsearch.yml
 
 ##START##------[ Start Elasticsearch ]--------------------
 
@@ -94,7 +96,7 @@ echo "7 - elasticsearch output ... "
 
 sudo rm -r /etc/logstash/conf.d/30-elasticsearch-output.conf
 
-sudo printf "
+sudo printf '
 output {
   if [@metadata][pipeline] {
 	elasticsearch {
@@ -111,7 +113,7 @@ output {
 	}
   }
 }
-" > /etc/logstash/conf.d/30-elasticsearch-output.conf
+' > /etc/logstash/conf.d/30-elasticsearch-output.conf
 
 ##START##------[ Start and enable logstash ]-------------------------
 
