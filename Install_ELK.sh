@@ -18,7 +18,7 @@ sudo apt-get update && sudo apt-get install elasticsearch
 
 echo "2 - Enable local network ... "
 sudo rm -r /etc/elasticsearch/elasticsearch.yml
-sudo printf "path.data: /var/lib/elasticsearch \npath.logs: /var/log/elasticsearch \n network.host: localhost" > /etc/elasticsearch/elasticsearch.yml
+sudo printf "path.data: /var/lib/elasticsearch\npath.logs: /var/log/elasticsearch\nnetwork.host: localhost" > /etc/elasticsearch/elasticsearch.yml
 
 ##START##------[ Start Elasticsearch ]--------------------
 
@@ -30,21 +30,21 @@ curl -X GET "localhost:9200"
 ##START##------[ Kibana install ]-------------------------
 
 echo "4 - Kibana install ... "
-sudo apt install kibana
+sudo apt install kibana -y
 sudo systemctl enable kibana
 sudo systemctl start kibana
 
 ##START##------[ Install nginx ]-------------------------
 
 echo "5 - Install nginx ... "
-sudo apt update
-sudo apt-get install nginx
+sudo apt update -y
+sudo apt-get install nginx -y
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 systemctl status nginx
 
 #--install net-tools to get ec2 ip
-sudo apt install net-tools
+sudo apt install net-tools -y
 #--create env varble called ec2 ip
 export ec2_ip=$(curl ifconfig.me)
 
@@ -96,7 +96,7 @@ echo "7 - elasticsearch output ... "
 
 sudo rm -r /etc/logstash/conf.d/30-elasticsearch-output.conf
 
-sudo printf '
+sudo echo '
 output {
   if [@metadata][pipeline] {
 	elasticsearch {
@@ -129,11 +129,14 @@ echo "
 
 "
 
-echo "know you can use your url
+echo "Now you can use your url
 
 "
 
-echo "  >>>>  http://$ec2_ip/status   <<<< "
+echo "  >>>>  http://$ec2_ip/status   <<<< 
+
+
+"
 
 
 
