@@ -13,18 +13,21 @@ sudo apt-get install apt-transport-https
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 echo "deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 sudo apt-get update && sudo apt-get install elasticsearch
-
+sleep 8
 ##START##------[ Enable local network ]-------------------
 
 echo "2 - Enable local network ... "
 sudo rm -r /etc/elasticsearch/elasticsearch.yml
+sleep 3
 sudo printf "path.data: /var/lib/elasticsearch\npath.logs: /var/log/elasticsearch\nnetwork.host: localhost" > /etc/elasticsearch/elasticsearch.yml
+
 
 ##START##------[ Start Elasticsearch ]--------------------
 
 echo "3 - Start Elasticsearch ... "
 sudo systemctl start elasticsearch
 sudo systemctl enable elasticsearch
+sleep 5
 curl -X GET "localhost:9200"
 
 ##START##------[ Kibana install ]-------------------------
@@ -32,6 +35,7 @@ curl -X GET "localhost:9200"
 echo "4 - Kibana install ... "
 sudo apt install kibana -y
 sudo systemctl enable kibana
+sleep 2
 sudo systemctl start kibana
 
 ##START##------[ Install nginx ]-------------------------
@@ -49,6 +53,7 @@ sudo apt install net-tools -y
 export ec2_ip=$(curl ifconfig.me)
 
 sudo rm -r /etc/nginx/sites-available/kibana
+sleep 3
 #--configure the kibana file
 
 sudo printf "
@@ -69,17 +74,19 @@ server {
 " > /etc/nginx/sites-available/kibana
 
 #--enable kibana 
+sleep 2
+
 sudo ln -s /etc/nginx/sites-available/kibana /etc/nginx/sites-enabled/kibana
 
 
 ##START##------[ Install logstash ]-------------------------
-
+ 
 echo "6 - Install logstash ... "
 
-sudo apt install logstash
+sudo apt install logstash -y
 
 sudo rm -r /etc/logstash/conf.d/02-beats-input.conf
-
+sleep 3
 #--create 02-beats-input.conf file
 
 sudo printf "
@@ -93,8 +100,11 @@ input {
 ##START##------[ elasticsearch output ]-------------------------
 
 echo "7 - elasticsearch output ... "
+sleep 2
 
 sudo rm -r /etc/logstash/conf.d/30-elasticsearch-output.conf
+
+sleep 2
 
 sudo echo '
 output {
@@ -126,7 +136,7 @@ echo "
 
 
 
-
+ 
 "
 
 echo "Now you can use your url
