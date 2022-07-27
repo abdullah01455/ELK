@@ -1,9 +1,5 @@
 #!/bin/bash
 
- 
-
-
-
 ##START##------Install elasticsearch-------------------------
 
 echo "1 - Start install elasticsearch ..."
@@ -20,7 +16,6 @@ echo "2 - Enable local network ... "
 sudo rm -r /etc/elasticsearch/elasticsearch.yml
 sleep 3
 sudo printf "path.data: /var/lib/elasticsearch\npath.logs: /var/log/elasticsearch\nnetwork.host: localhost" > /etc/elasticsearch/elasticsearch.yml
-
 
 ##START##------[ Start Elasticsearch ]--------------------
 
@@ -81,7 +76,6 @@ server {
 export ec2_ip=$(curl ifconfig.me)
 sudo ln -s /etc/nginx/sites-available/kibana /etc/nginx/sites-enabled/kibana
 
-
 ##START##------[ Install logstash ]-------------------------
  
 echo "6 - Install logstash ... "
@@ -132,25 +126,31 @@ output {
 
 sudo systemctl start logstash
 sudo systemctl enable logstash
-
 echo "Done !!"
+sudo service nginx restart
 
 echo "
 
 
-
+o
+ \_/\o
+( Oo)                    \|/
+(_=-)  .===O-  ~~Z~A~P~~ -O-  >>>>  http://$ec2_ip/status   <<<< 
+/   \_/U'                /|\
+||  |_/
+\\  |
+{K ||
+ | PP
+ | ||
+ (__\\
  
 "
 
-echo "Now you can use your url
-
-"
-sudo service nginx restart
-
-echo "  >>>>  http://$ec2_ip/status   <<<< 
 
 
-"
+
+
+
 
 
 
