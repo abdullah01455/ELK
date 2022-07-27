@@ -54,8 +54,8 @@ export ec2_ip=$(curl ifconfig.me)
 sudo rm -r /etc/nginx/sites-available/kibana
 sleep 3
 #--configure the kibana file
-#@@@@
-sudo printf "
+
+sudo echo '
 server {
     listen 80;
 
@@ -70,7 +70,7 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 }
-" > /etc/nginx/sites-available/kibana
+' > /etc/nginx/sites-available/kibana
 
 #--enable kibana 
 
