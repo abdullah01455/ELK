@@ -13,7 +13,7 @@ sudo apt-get install apt-transport-https
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 echo "deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 sudo apt-get update && sudo apt-get install elasticsearch
-sleep 8
+
 ##START##------[ Enable local network ]-------------------
 
 echo "2 - Enable local network ... "
@@ -27,7 +27,6 @@ sudo printf "path.data: /var/lib/elasticsearch\npath.logs: /var/log/elasticsearc
 echo "3 - Start Elasticsearch ... "
 sudo systemctl start elasticsearch
 sudo systemctl enable elasticsearch
-sleep 5
 curl -X GET "localhost:9200"
 
 ##START##------[ Kibana install ]-------------------------
@@ -74,8 +73,8 @@ server {
 " > /etc/nginx/sites-available/kibana
 
 #--enable kibana 
-sleep 2
 
+export ec2_ip=$(curl ifconfig.me)
 sudo ln -s /etc/nginx/sites-available/kibana /etc/nginx/sites-enabled/kibana
 
 
@@ -148,7 +147,7 @@ echo "  >>>>  http://$ec2_ip/status   <<<<
 
 "
 
-sudo service nginx restart
+
 
 
 
