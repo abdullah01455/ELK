@@ -3,7 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-       - ./elkScript.sh
+       - sudo sh ./elkScript.sh
        - echo done install 
 artifacts:
  files:
