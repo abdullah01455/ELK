@@ -5,3 +5,6 @@ phases:
     commands:
        - ./elkScript.sh
        - echo done install 
+artifacts:
+ files:
+ - elkScript.sh
