@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+       - sudo sh ./elkScript.sh
+       - echo done install 
+artifacts:
+ files:
+ - elkScript.sh
