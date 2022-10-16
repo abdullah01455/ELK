@@ -39,7 +39,7 @@ sudo apt update -y
 sudo apt-get install nginx -y
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
-systemctl status nginx
+
 
 #--install net-tools to get ec2 ip
 sudo apt install net-tools -y
