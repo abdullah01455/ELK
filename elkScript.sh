@@ -20,8 +20,8 @@ sudo printf "path.data: /var/lib/elasticsearch\npath.logs: /var/log/elasticsearc
 ##START##------[ Start Elasticsearch ]--------------------
 
 echo "3 - Start Elasticsearch ... "
-sudo systemctl start elasticsearch
-sudo systemctl enable elasticsearch
+#sudo systemctl start elasticsearch
+#sudo systemctl enable elasticsearch
 curl -X GET "localhost:9200"
 
 ##START##------[ Kibana install ]-------------------------
