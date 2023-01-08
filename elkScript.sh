@@ -20,8 +20,9 @@ sudo printf "path.data: /var/lib/elasticsearch\npath.logs: /var/log/elasticsearc
 ##START##------[ Start Elasticsearch ]--------------------
 
 echo "3 - Start Elasticsearch ... "
-#sudo systemctl start elasticsearch
-#sudo systemctl enable elasticsearch
+sudo systemctl enable elasticsearch
+sleep 2
+sudo systemctl start elasticsearch
 curl -X GET "localhost:9200"
 
 ##START##------[ Kibana install ]-------------------------
@@ -125,6 +126,7 @@ output {
 ##START##------[ Start and enable logstash ]-------------------------
 
 sudo systemctl start logstash
+sleep 2
 sudo systemctl enable logstash
 echo "Done !!"
 sudo service nginx restart
