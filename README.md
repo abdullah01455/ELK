@@ -14,6 +14,10 @@ not a real ELK stack it's for educational purpose
 
 
 ```
+# to clone the script 
+git clone https://github.com/abdullah01455/ELK.git
 
+# to give excute permession
+sudo 
 
 ```
