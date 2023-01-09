@@ -24,5 +24,5 @@ sh elkScript.sh
 
 ```
 
-![Alt text](https://drive.google.com/file/d/1mJEmvWHCn4iOYiFIrMRJlfky2NngsMGq/view?usp=sharing "Optional title")
-
+![Alt text]( "Optional title")
+![My Remote Image](https://drive.google.com/file/d/1mJEmvWHCn4iOYiFIrMRJlfky2NngsMGq/view?usp=sharing)
