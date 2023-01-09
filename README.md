@@ -13,6 +13,11 @@ it's not a real ELK stack it's for educational purpose to learn the concept of E
 
 1 - Create your own ubuntu ec2 on AWS 
 
+
+<p align="center">
+  <img src="https://lh3.google.com/u/0/d/1L_TFdP2J6qFRzIpEf4ZMw8fw0BkOPYuO=w1920-h969-iv1" />
+</p>
+
 2 - when you are create a new security group open Kibana port [ 5601 ] and Elasticsearch port [ 9200 ] logstash port [ 5044 ] and http port [ 80 ]  
 
 3 - ssh or connect to your ec2 instans and login as a root user then clone the elkScript.sh and run the scribt 
