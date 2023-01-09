@@ -24,3 +24,5 @@ sh elkScript.sh
 
 ```
 
+![Alt text](/elk.gif "Optional title")
+
