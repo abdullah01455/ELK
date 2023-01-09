@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="https://drive.google.com/file/d/1mJEmvWHCn4iOYiFIrMRJlfky2NngsMGq/view?usp=sharing" />
+  <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gPb_xEAARbOSQW1CAXt-jCYGu1uj5C5fcklEl9FYDtihCBkOWR1HOvd7F_eJXx2sNwR2kT_SduSEtuppl5Hd8LUKjRniQ=w1920-h687" />
 </p>
 
 This is a bash script to install ELK stack on [  AWS EC2 instans ]
