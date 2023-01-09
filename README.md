@@ -24,5 +24,5 @@ sh elkScript.sh
 
 ```
 
-![Alt text](/elk.gif "Optional title")
+![Alt text](https://drive.google.com/file/d/1mJEmvWHCn4iOYiFIrMRJlfky2NngsMGq/view?usp=sharing "Optional title")
 
