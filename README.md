@@ -1,5 +1,10 @@
 # [ elkScribt ]
 
+
+<p align="center">
+  <img src="https://drive.google.com/file/d/1mJEmvWHCn4iOYiFIrMRJlfky2NngsMGq/view?usp=sharing" />
+</p>
+
 This is a bash script to install ELK stack on [  AWS EC2 instans ]
 it's not a real ELK stack it's for educational purpose to learn the concept of ELK stack
 
